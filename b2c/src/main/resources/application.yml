@@ -20,12 +20,12 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     properties:
       hibernate:
-        show_sql: true
-        format_sql: true
-        use_sql_comments: true
+        show_sql: true  # 콘솔에 쿼리 출력
+        format_sql: true  # 읽기 쉽게 줄바꿈
+        use_sql_comments: true  # 주석 추가
 
   session:
     redis:
@@ -34,6 +34,15 @@ spring:
     redis:
       host: 127.0.0.1
       port: 6380
+
+logging:
+  level:
+    org:
+      hibernate:
+        sql: DEBUG # 쿼리 실행 로그 레벨을 DEBUG 로 설정
+        orm:
+          jdbc:
+            bind: trace # 파라미터 바인딩 정보를 로그에 출력
 
 cloud:
   aws:

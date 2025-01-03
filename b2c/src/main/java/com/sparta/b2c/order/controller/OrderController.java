@@ -36,7 +36,7 @@ public class OrderController {
     @GetMapping()
     public ResponseEntity<PageOrderResponse> searchOrderList(@RequestParam(defaultValue = "1") int page,
                                                              @RequestParam(defaultValue = "10") int size,
-                                                             @RequestParam(required = false, defaultValue = "modifiedAt") String sortBy,
+                                                             @RequestParam(required = false, defaultValue = "createdAt") String sortBy,
                                                              @RequestParam(required = false, defaultValue = "DESC") String orderBy,
                                                              @LoginMember(role = Role.B2C) MemberSession memberSession) {
 
